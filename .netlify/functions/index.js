@@ -6,6 +6,6 @@ exports.handler = async function(event, context) {
   const res = await client.query("select * from Test");
   return {
     statusCode: 200,
-    body: res
+    body: JSON.stringify(res)
   }
 }
