@@ -3,6 +3,10 @@ exports.handler = async function(event, context) {
   const conString = "postgres://pkqsbedc:CxPicJdBE6x4gh_rEyNurjkLf5awPMzF@batyr.db.elephantsql.com/pkqsbed";
   const client = new pg.Client(conString);
   client.connect();
-  const res = client.query('select * from Test');
-  console.log(res.rows[0].message);
+
+client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
+  console.log(err ? err.stack : res.rows[0].message) // Hello World!
+  client.end()
+})
+
 }
