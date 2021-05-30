@@ -4,9 +4,7 @@ exports.handler = async function(event, context) {
     const client = new pg.Client(conString);
     client.connect(function(err) {
         if(err) {
-            return {
-                body: "could not connect to postgres"
-            }
+            console.log('err');
         }
     }
 }
