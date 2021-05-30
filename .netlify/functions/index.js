@@ -9,7 +9,7 @@ client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
   client.end();
   return {
   statusCode: 200,
-  body: err
+  body: err + "Hello World"
 };
 })
 
