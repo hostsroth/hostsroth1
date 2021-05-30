@@ -4,8 +4,5 @@ exports.handler = async function(event, context) {
   const client = new pg.Client(conString);
   client.connect();
   const res = await client.query("select * from Test");
-  return {
-    statusCode: 200,
-    body: JSON.stringify(res)
-  };
+  console.log(res);
 }
